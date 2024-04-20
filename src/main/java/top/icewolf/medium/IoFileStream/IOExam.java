@@ -38,4 +38,29 @@ public class IOExam {
             }
         }
     }
+
+    // 查找文件内容
+    public static void search(File folder, String search){
+        File[] files = folder.listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
+                search(file,search);
+            } else {
+                try(FileReader fr = new FileReader(file)){
+                    char[] chars = new char[(int) file.length()];
+                    int read = fr.read(chars);
+                    if (read != -1) {
+                        String string = new String(chars);
+                        if (string.contains(search)) {
+                            System.out.println(file);
+                        }
+                    }
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
 }
