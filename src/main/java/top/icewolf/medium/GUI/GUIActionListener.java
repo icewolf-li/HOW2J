@@ -43,7 +43,6 @@ public class GUIActionListener extends Thread {
             }
         });
 
-        // 键盘监听事件
         frame.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -52,19 +51,20 @@ public class GUIActionListener extends Thread {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == 49) {
-                    // 图片向右移动 （y坐标不变，x坐标增加）
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    label.setLocation(label.getX() - 10, label.getY());
+                } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                     label.setLocation(label.getX() + 10, label.getY());
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    label.setLocation(label.getX(), label.getY() + 10);
+                } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    label.setLocation(label.getX(), label.getY() - 10);
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                if (e.isActionKey()) {
-                    if (e.getKeyCode() == 122) {
-                        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-                    }
-                }
+
             }
         });
 
