@@ -10,6 +10,7 @@ public class 模态与大小变化 {
         f.setSize(400, 300);
         f.setLocation(100, 100);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // 设置布局器为null，即进行绝对定位，容器上的组件都需要指定位置和大小
         f.setLayout(null);
 
         // 根据 外部窗体 实例化JDialog并且设置标题
@@ -19,6 +20,7 @@ public class 模态与大小变化 {
         // 设置大小和位置
         d.setSize(400, 300);
         d.setLocation(200, 200);
+        // 设置布局器为null，即进行绝对定位，容器上的组件都需要指定位置和大小
         d.setLayout(null);
 
         // 创建一个普通窗体的按钮
